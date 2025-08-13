@@ -1,0 +1,10 @@
+^C:\USERS\BHARATH\ONEDRIVE - RAMP GROUP TECHNOLOGIES\DESKTOP\COPILET\VEHICLESUM\BUILD\CMAKEFILES\D122357BF563C6EC47D24FF7FF6926EF\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Bharath/OneDrive - Ramp Group Technologies/Desktop/CoPilet/VehicleSum" "-BC:/Users/Bharath/OneDrive - Ramp Group Technologies/Desktop/CoPilet/VehicleSum/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "C:/Users/Bharath/OneDrive - Ramp Group Technologies/Desktop/CoPilet/VehicleSum/build/VehicleSimNoDB.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
