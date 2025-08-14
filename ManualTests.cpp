@@ -1,12 +1,25 @@
+
 #include <iostream>
 #include <cmath>
 #include "Simulation.h"
 
+/**
+ * @brief Compares two double values for approximate equality.
+ * 
+ * @param a First value to compare.
+ * @param b Second value to compare.
+ * @param epsilon Maximum allowed difference between a and b.
+ * @return true if the values are approximately equal, false otherwise.
+ */
 bool almostEqual(double a, double b, double epsilon=1e-5) {
     return std::fabs(a - b) < epsilon;
 }
 
-// === Existing tests ===
+/**
+ * @brief Tests the addition of a vehicle to the simulation.
+ * 
+ * This test adds a vehicle to the simulation and verifies that it can be viewed.
+ */
 void testAddVehicle() {
     std::cout << "[TEST] AddVehicle\n";
     Settings s{1.0, 5.0, "m/s", true};
@@ -17,6 +30,12 @@ void testAddVehicle() {
     std::cout << "Test AddVehicle complete.\n\n";
 }
 
+/**
+ * @brief Tests the position update of a vehicle after one time step.
+ * 
+ * This test adds a vehicle to the simulation, advances one time step,
+ * and verifies that the vehicle's position has been updated correctly.
+ */
 void testPositionUpdate() {
     std::cout << "[TEST] PositionUpdate\n";
     Settings s{1.0, 5.0, "m/s", true};
@@ -35,9 +54,12 @@ void testPositionUpdate() {
     std::cout << "Test PositionUpdate complete.\n\n";
 }
 
-// === New tests ===
-
-// 1. Collision detection test
+/**
+ * @brief Tests the collision detection mechanism.
+ * 
+ * This test adds two vehicles close to each other and verifies
+ * that a collision is detected.
+ */
 void testCollisionDetection() {
     std::cout << "[TEST] CollisionDetection\n";
     Settings s{1.0, 5.0, "m/s", true};
@@ -72,7 +94,12 @@ void testCollisionDetection() {
     std::cout << "Test CollisionDetection complete.\n\n";
 }
 
-// 2. No collision test
+/**
+ * @brief Tests that no collision is detected when vehicles are far apart.
+ * 
+ * This test adds two vehicles far from each other and verifies
+ * that no collision is detected.
+ */
 void testNoCollision() {
     std::cout << "[TEST] NoCollision\n";
     Settings s{1.0, 5.0, "m/s", true};
@@ -106,7 +133,11 @@ void testNoCollision() {
     std::cout << "Test NoCollision complete.\n\n";
 }
 
-// 3. History tracking test
+/**
+ * @brief Tests the history recording functionality of the simulation.
+ * 
+ * This test runs a simulation and then checks if the history has been recorded.
+ */
 void testHistoryRecording() {
     std::cout << "[TEST] HistoryRecording\n";
     Settings s{0.1, 5.0, "m/s", true}; // small step
@@ -120,7 +151,11 @@ void testHistoryRecording() {
     std::cout << "Test HistoryRecording complete.\n\n";
 }
 
-// 4. Replay run test
+/**
+ * @brief Tests the replay functionality of the simulation.
+ * 
+ * This test runs a simulation and then attempts to replay the first run.
+ */
 void testReplayRun() {
     std::cout << "[TEST] ReplayRun\n";
     Settings s{0.5, 5.0, "m/s", true};
@@ -134,6 +169,13 @@ void testReplayRun() {
     std::cout << "Test ReplayRun complete.\n\n";
 }
 
+/**
+ * @brief Main function to run all manual tests.
+ * 
+ * This function calls all the test functions in sequence.
+ * 
+ * @return int Returns 0 on successful execution of all tests.
+ */
 int main() {
     testAddVehicle();
     testPositionUpdate();
